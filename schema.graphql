@@ -1,6 +1,59 @@
-type ExampleEntity @entity {
-  id: ID!
-  count: BigInt!
-  owner: Bytes! # address
-  approved: Bytes! # address
+type Controller @entity {
+    id: ID!
+    controller: Bytes!
+
+    createdAt: Bytes!
+    removedAt: Bytes
+}
+type NameMigrated @entity {
+    id: ID!
+    index: BigInt!
+    hash: Bytes!
+
+    ensId: BigInt!
+    owner: Bytes!
+    expires: BigInt!
+}
+
+type NameRegistered @entity {
+    id: ID!
+    index: BigInt!
+    hash: Bytes!
+
+    ensId: BigInt!
+    owner: Bytes!
+    expires: BigInt!
+}
+type NameRenewed @entity {
+    id: ID!
+    index: BigInt!
+    hash: Bytes!
+
+    ensId: BigInt!
+    expires: BigInt!
+}
+
+# OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+type OwnershipTransferred @entity {
+    id: ID!
+    index: BigInt!
+    hash: Bytes!
+
+    previousOwner: Bytes!
+    newOwner: Bytes!
+}
+
+type Transfer @entity {
+    id: ID!
+    index: BigInt!
+    hash: Bytes!
+
+    from: Bytes!
+    to: Bytes!
+    tokenId: BigInt!
+}
+
+type Counter @entity {
+    id: ID!
+    count: BigInt!
 }
